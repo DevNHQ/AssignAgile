@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorToolBar">
+
+        <TextView
+            style="@style/TextToolBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Ôn thi THPTQG" />
+    </android.support.v7.widget.Toolbar>
+
+    <ImageView
+        android:layout_width="320dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/image_background" />
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="@drawable/border_button_mainscreen"
+        android:onClick="gocHocTap">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/luyen_thi" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextInMainScreen_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Góc học tập" />
+            <TextView
+                style="@style/TextInMainScreen_Normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_mainscreen_1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="@drawable/border_button_mainscreen"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/tin_tuc" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextInMainScreen_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tin tức" />
+            <TextView
+                style="@style/TextInMainScreen_Normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_mainscreen_2" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="@drawable/border_button_mainscreen"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/unnamed" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextInMainScreen_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lịch sử làm bài" />
+            <TextView
+                style="@style/TextInMainScreen_Normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_mainscreen_3" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
