@@ -14,7 +14,7 @@ public class WelcomeActivity extends AppCompatActivity {
         Thread bamgio = new Thread() {
             public void run() {
                 try {
-                    sleep(5000);
+                    sleep(2000);
                 } catch (Exception e) {
 
                 } finally {

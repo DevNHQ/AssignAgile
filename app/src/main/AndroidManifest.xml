@@ -17,10 +17,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".GocHocTapActivity" />
-        <activity android:name=".MonActivity" />
-        <activity android:name=".ThiThuActivity" />
-        <activity android:name=".OnTapActivity"></activity>
+        <activity
+            android:name=".GocHocTapActivity"
+            android:label="Góc học tập"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".MonActivity"
+            android:parentActivityName=".GocHocTapActivity" />
+        <activity
+            android:name=".ThiThuActivity"
+            android:parentActivityName=".MonActivity" />
+        <activity
+            android:name=".OnTapActivity"
+            android:parentActivityName=".MonActivity" />
+        <activity android:name=".StartThiActivity" />
+        <activity android:name=".StartOnActivity" />
+        <activity android:name=".KetQuaActivity"></activity>
     </application>
 
 </manifest>

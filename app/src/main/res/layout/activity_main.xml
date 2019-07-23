@@ -61,39 +61,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:padding="5dp"
-        android:background="@drawable/border_button_mainscreen"
-        android:layout_marginTop="10dp">
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/tin_tuc" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/TextInMainScreen_Bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tin tức" />
-            <TextView
-                style="@style/TextInMainScreen_Normal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_mainscreen_2" />
-        </LinearLayout>
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="320dp"
