@@ -16,7 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".GocHocTapActivity" />
+        <activity android:name=".MonActivity" />
+        <activity android:name=".ThiThuActivity" />
+        <activity android:name=".OnTapActivity"></activity>
     </application>
 
 </manifest>
