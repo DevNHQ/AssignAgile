@@ -1,5 +1,6 @@
 package androidagile.it.thanh.assignagile.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -16,11 +17,12 @@ import java.util.List;
 import androidagile.it.thanh.assignagile.R;
 import androidagile.it.thanh.assignagile.StartThiActivity;
 import androidagile.it.thanh.assignagile.ThiThuActivity;
+import androidagile.it.thanh.assignagile.TracNghiemActivity;
 
 public class ThiThuAdapter extends RecyclerView.Adapter<ThiThuAdapter.ThiThuHolder> {
-
     ThiThuActivity context;
     List<String> thithulist;
+    String m;
 
     public ThiThuAdapter(ThiThuActivity context, List<String> thithulist) {
         this.context = context;
@@ -36,11 +38,15 @@ public class ThiThuAdapter extends RecyclerView.Adapter<ThiThuAdapter.ThiThuHold
 
     @Override
     public void onBindViewHolder(@NonNull ThiThuHolder holder, int position) {
+        Intent intent = ((Activity) context).getIntent();
+       m = intent.getStringExtra("m");
+        Log.e("dâda",m);
         holder.tvItemThiThu.setText(thithulist.get(position));
         holder.linearItemThiThu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, StartThiActivity.class);
+                Intent intent=new Intent(context, TracNghiemActivity.class);
+                intent.putExtra("putdata",m);
                 context.startActivity(intent);
             }
         });

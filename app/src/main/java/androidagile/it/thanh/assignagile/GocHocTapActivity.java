@@ -28,6 +28,29 @@ public class GocHocTapActivity extends AppCompatActivity {
 
     public void diaLy(View view) {
         Intent intent = new Intent(GocHocTapActivity.this, MonActivity.class);
+        intent.putExtra("monthi","DiaLy");
+        intent.putExtra("Title","Địa Lý");
+        startActivity(intent);
+    }
+
+    public void lichsu(View view) {
+        Intent intent = new Intent(GocHocTapActivity.this, MonActivity.class);
+        intent.putExtra("monthi","LichSu");
+        intent.putExtra("Title","Lịch Sử");
+        startActivity(intent);
+    }
+
+    public void gdcd(View view) {
+        Intent intent = new Intent(GocHocTapActivity.this, MonActivity.class);
+        intent.putExtra("monthi","GDCD");
+        intent.putExtra("Title","Giáo Dục Công Dân");
+        startActivity(intent);
+    }
+
+    public void sinhoc(View view) {
+        Intent intent = new Intent(GocHocTapActivity.this, MonActivity.class);
+        intent.putExtra("monthi","DiaLy");
+        intent.putExtra("Title","Sinh Học");
         startActivity(intent);
     }
 }

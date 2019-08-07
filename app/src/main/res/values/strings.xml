@@ -3,4 +3,6 @@
     <string name="text_mainscreen_1">Nơi ôn luyện lý thuyết và thi thử</string>
     <string name="text_mainscreen_2">Tin tức về giáo dục</string>
     <string name="text_mainscreen_3">Kết quả làm bài luyện thi</string>
+    <string name="facebook_app_id">595301440890605</string>
+    <string name="fb_login_protocol_scheme">fb595301440890605</string>
 </resources>

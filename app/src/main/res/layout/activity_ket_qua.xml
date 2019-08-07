@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".KetQuaActivity">
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_thiTracNghiem"
         android:layout_width="match_parent"
@@ -15,22 +14,12 @@
         android:background="@color/colorToolBar"
         android:theme="@style/AppTheme.AppBarOverlay"
         app:popupTheme="@style/AppTheme.PopupOverlay">
-
-        <ImageView
-            android:id="@+id/imgToolBarThiTracNghiem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:onClick="backToThiThu"
-            android:src="@drawable/ic_arrow_back_white_24dp" />
-
         <TextView
             style="@style/TextToolBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kết quả thi môn lịch sử" />
+            android:text="Kết quả thi trắc nghiệm" />
     </android.support.v7.widget.Toolbar>
-
     <ImageView
         android:layout_width="140dp"
         android:layout_height="140dp"
@@ -39,6 +28,7 @@
         android:src="@drawable/lich_su_lam_bai" />
 
     <TextView
+        android:id="@+id/tvdiem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -59,6 +49,7 @@
         android:text="Cô gắng thêm nha!!!" />
 
     <Button
+        android:onClick="Share"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -79,6 +70,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvCauDung"
                 style="@style/TextInKetQua2"
                 android:text="20/40" />
 
@@ -94,6 +86,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvCauSai"
                 style="@style/TextInKetQua2"
                 android:text="16/40" />
 
@@ -110,6 +103,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvchualam"
                 style="@style/TextInKetQua2"
                 android:text="4/40" />
 
@@ -125,14 +119,17 @@
         android:orientation="horizontal">
 
         <Button
+            android:onClick="LamLai"
             style="@style/ButtonInKetQua"
             android:text="Làm lại" />
 
         <Button
+            android:onClick="LuuDiem"
             style="@style/ButtonInKetQua"
             android:text="Lưu Điểm" />
 
         <Button
+            android:onClick="Thoat"
             style="@style/ButtonInKetQua"
             android:text="Thoát" />
     </LinearLayout>

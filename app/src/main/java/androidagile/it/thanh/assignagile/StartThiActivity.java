@@ -19,7 +19,7 @@ public class StartThiActivity extends AppCompatActivity {
     }
 
     public void resultThiTracNghiem(View view) {
-        Intent intent = new Intent(StartThiActivity.this, KetQuaActivity.class);
+        Intent intent = new Intent(StartThiActivity.this, TracNghiemActivity.class);
         startActivity(intent);
     }
 }
