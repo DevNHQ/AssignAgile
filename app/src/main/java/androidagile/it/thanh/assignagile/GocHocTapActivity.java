@@ -49,7 +49,7 @@ public class GocHocTapActivity extends AppCompatActivity {
 
     public void sinhoc(View view) {
         Intent intent = new Intent(GocHocTapActivity.this, MonActivity.class);
-        intent.putExtra("monthi","DiaLy");
+        intent.putExtra("monthi","SinhHoc");
         intent.putExtra("Title","Sinh Học");
         startActivity(intent);
     }

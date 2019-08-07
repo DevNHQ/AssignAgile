@@ -1,7 +1,9 @@
 package androidagile.it.thanh.assignagile;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -27,6 +29,9 @@ public class KetQuaActivity extends AppCompatActivity {
     private CallbackManager manager;
     int dalam;
     int dung;
+    int sai;
+    int chualam;
+    String putdata;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +45,16 @@ public class KetQuaActivity extends AppCompatActivity {
         Intent intent = getIntent();
          dalam = Integer.parseInt(intent.getStringExtra("DaLam"));
          dung = Integer.parseInt(intent.getStringExtra("Dung"));
-        tvsoCaudung.setText(dung+" / 20");
-        tvSocausai.setText(20 - dalam+" / 20");
-        tvChuatraloi.setText(20 - dalam+" / 20");
-        tvDiem.setText(0.5*dung+ " / 10");
+         chualam = 40-dalam;
+         sai = 40-dung-chualam;
+        tvsoCaudung.setText(dung+" / 40");
+        tvSocausai.setText(sai+" / 40");
+        tvChuatraloi.setText(chualam+" / 40");
+        tvDiem.setText(0.25*dung+ " / 10");
 
+        //
+        Intent intent1 = getIntent();
+        putdata = intent1.getStringExtra("putdata");
 
         manager = CallbackManager.Factory.create();
         shareDialog.registerCallback(manager, new FacebookCallback<Sharer.Result>() {
@@ -74,12 +84,17 @@ public class KetQuaActivity extends AppCompatActivity {
     }
 
     public void LamLai(View view) {
+        Intent intent = new Intent(KetQuaActivity.this,TracNghiemActivity.class);
+        intent.putExtra("putdata",putdata);
+        startActivity(intent);
     }
 
     public void LuuDiem(View view) {
     }
 
     public void Thoat(View view) {
+        Intent intent = new Intent(KetQuaActivity.this,GocHocTapActivity.class);
+        startActivity(intent);
     }
     public void Share(View view) {
         checkInternet();
@@ -117,5 +132,4 @@ public class KetQuaActivity extends AppCompatActivity {
             shareDialog.show(content);
             return true;}
     }
-
 }

@@ -23,6 +23,7 @@ public class ThiThuAdapter extends RecyclerView.Adapter<ThiThuAdapter.ThiThuHold
     ThiThuActivity context;
     List<String> thithulist;
     String m;
+    String tt;
 
     public ThiThuAdapter(ThiThuActivity context, List<String> thithulist) {
         this.context = context;
@@ -37,9 +38,9 @@ public class ThiThuAdapter extends RecyclerView.Adapter<ThiThuAdapter.ThiThuHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ThiThuHolder holder, int position) {
-        Intent intent = ((Activity) context).getIntent();
+    public void onBindViewHolder(@NonNull ThiThuHolder holder, int position) { Intent intent = ((Activity) context).getIntent();
        m = intent.getStringExtra("m");
+       tt = intent.getStringExtra("tt");
         Log.e("dâda",m);
         holder.tvItemThiThu.setText(thithulist.get(position));
         holder.linearItemThiThu.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +48,7 @@ public class ThiThuAdapter extends RecyclerView.Adapter<ThiThuAdapter.ThiThuHold
             public void onClick(View v) {
                 Intent intent=new Intent(context, TracNghiemActivity.class);
                 intent.putExtra("putdata",m);
+                intent.putExtra("tt",tt);
                 context.startActivity(intent);
             }
         });
