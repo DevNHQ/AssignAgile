@@ -17,4 +17,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, GocHocTapActivity.class);
         startActivity(intent);
     }
+
+    public void LichSuLamBai(View view) {
+        Intent intent1 = new Intent(MainActivity.this,LichSuOnTapActivity.class);
+        startActivity(intent1);
+    }
 }

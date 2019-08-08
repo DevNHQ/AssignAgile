@@ -50,11 +50,13 @@
 
     <Button
         android:onClick="Share"
+        android:textColor="@color/colorWhite"
         android:layout_width="300dp"
+        android:textSize="16dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@color/colorPrimary"
-        android:text="Chia sẻ với bạn bè"
+        android:text="Chia sẻ lên FaceBook"
         android:textAllCaps="false" />
 
     <LinearLayout
@@ -119,16 +121,19 @@
         android:orientation="horizontal">
 
         <Button
+            android:textSize="16dp"
             android:onClick="LamLai"
             style="@style/ButtonInKetQua"
             android:text="Làm lại" />
 
         <Button
+            android:textSize="16dp"
             android:onClick="LuuDiem"
             style="@style/ButtonInKetQua"
             android:text="Lưu Điểm" />
 
         <Button
+            android:textSize="16dp"
             android:onClick="Thoat"
             style="@style/ButtonInKetQua"
             android:text="Thoát" />

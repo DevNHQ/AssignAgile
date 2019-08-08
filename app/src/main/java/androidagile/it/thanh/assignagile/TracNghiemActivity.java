@@ -39,7 +39,7 @@ public class TracNghiemActivity extends AppCompatActivity {
     private RadioButton rdB;
     private RadioButton rdC;
     private RadioButton rdD;
-    private TextView tvNum, tvCauHoi,tvThoigian,tvKiemTra;
+    private TextView tvNum, tvCauHoi,tvThoigian,tvKiemTra,tvR,tvN;
     private Button btnNext;
     String link;
     String tt;
@@ -50,6 +50,7 @@ public class TracNghiemActivity extends AppCompatActivity {
     private int Thoigian;
     private CounterClass time;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +58,8 @@ public class TracNghiemActivity extends AppCompatActivity {
         tvThoigian = findViewById(R.id.tvTimer);
         tvNum = findViewById(R.id.tvNum);
         tvCauHoi = findViewById(R.id.tvQuestion);
+        tvR = findViewById(R.id.tvR);
+        tvN = findViewById(R.id.tvN);
         tvKiemTra = findViewById(R.id.tvKiemTra);
         rdA = findViewById(R.id.radA);
         rdB = findViewById(R.id.radB);
@@ -104,6 +107,7 @@ public class TracNghiemActivity extends AppCompatActivity {
         //lấy 10 câu hỏi ngẫu nhiên
         for (int i = z; i < 40; i++) {
             tvNum.setText("Câu " + (z + 1) + ": ");
+            tvN.setText("Đáp án đúng câu "+(i+1-1)+":");
             Random random = new Random();
             int choose = random.nextInt(160);
             Cauhoi cauhoi = cauhoiList.get(choose);
@@ -123,32 +127,26 @@ public class TracNghiemActivity extends AppCompatActivity {
     }
     public void kiemtra() {
         //lấy kết quả
-
         Log.e("result", z + " - " + result);
-
-        //kiểm tra radiobuuton nào check -> ktra giá trị đó đúng/sai?
+        tvR.setText(result);
         if (rdA.isChecked()) {
             if (rdA.getText().equals("A : "+result)) {
                 dung++;
-                Toast.makeText(TracNghiemActivity.this, "Đáp án :" + rdA.getText(), Toast.LENGTH_SHORT).show();
             }
         }
         else if (rdB.isChecked()) {
             if (rdB.getText().equals("B : "+result)) {
                 dung++;
-                Toast.makeText(this, "Đáp án :" +rdB.getText(), Toast.LENGTH_SHORT).show();
             }
         }
         else if (rdC.isChecked()) {
             if (rdC.getText().equals("C : "+result)) {
                 dung++;
-                Toast.makeText(this, "Đáp án :"+rdC.getText(), Toast.LENGTH_SHORT).show();
             }
         }
         else if (rdD.isChecked()) {
             if (rdD.getText().equals("D : "+result)) {
                 dung++;
-                Toast.makeText(this, "Đáp án "+rdD.getText(), Toast.LENGTH_SHORT).show();
             }
         }
 
