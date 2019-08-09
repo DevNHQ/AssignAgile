@@ -21,37 +21,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:onClick="backToMon"
+            android:onClick="BackOntap"
             android:src="@drawable/ic_arrow_back_white_24dp" />
-
         <TextView
             style="@style/TextToolBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ôn tập địa lý" />
+            android:id="@+id/tbontap" />
     </android.support.v7.widget.Toolbar>
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:src="@drawable/thumb" />
-
-    <TextView
-        style="@style/TextInGocHoctapScreen_Bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Ôn tập kiến thức lịch sử" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyvleview_ontap"
+    <WebView
+        android:id="@+id/webview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp">
-
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"></WebView>
 
 </LinearLayout>
