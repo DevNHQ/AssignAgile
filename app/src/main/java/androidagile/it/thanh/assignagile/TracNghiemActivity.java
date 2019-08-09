@@ -1,10 +1,15 @@
 package androidagile.it.thanh.assignagile;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,9 +45,9 @@ public class TracNghiemActivity extends AppCompatActivity {
     private RadioButton rdC;
     private RadioButton rdD;
     private TextView tvNum, tvCauHoi,tvThoigian,tvKiemTra,tvR,tvN;
-    private Button btnNext;
+    String monthi;
+    String title;
     String link;
-    String tt;
     int z = 0;
     int daLam = 0;
     int dung = 0;
@@ -67,15 +72,14 @@ public class TracNghiemActivity extends AppCompatActivity {
         rdD = findViewById(R.id.radD);
         radioGroup = findViewById(R.id.radGroup);
         cauhoiList = new ArrayList<>();
-        btnNext = findViewById(R.id.nexttt);
         Intent intent = getIntent();
-        link = intent.getStringExtra("putdata");
-        tt = intent.getStringExtra("tt");
-        tvKiemTra.setText(tt);
-        Log.e("đa141", link);
+        monthi = intent.getStringExtra("monthi");
+        title = intent.getStringExtra("title");
+        link = intent.getStringExtra("link");
+        tvKiemTra.setText(title);
         GetHttpTask getHttpTask = new GetHttpTask();
-        getHttpTask.execute("http://14.232.125.187:3000/api/" + link);
-        Log.e("linkkda", "http://14.232.125.187:3000/api/" + link);
+        getHttpTask.execute("http://14.232.77.196:3000/api/" + monthi);
+        Log.e("linkkda", "http://14.232.125.187:3000/api/" + monthi);
             //Time
         Thoigian = 25;
         time = new CounterClass(Thoigian*60*1000,1000);
@@ -93,8 +97,11 @@ public class TracNghiemActivity extends AppCompatActivity {
             Intent intent = new Intent(TracNghiemActivity.this, KetQuaActivity.class);
             intent.putExtra("DaLam", String.valueOf(daLam));
             intent.putExtra("Dung", String.valueOf(dung));
-            intent.putExtra("putdata",link);
+            intent.putExtra("monthi",monthi);
+            intent.putExtra("link",link);
+            intent.putExtra("title",title);
             startActivity(intent);
+            finish();
         }
 
         //set uncheck cho radio
@@ -129,31 +136,35 @@ public class TracNghiemActivity extends AppCompatActivity {
         //lấy kết quả
         Log.e("result", z + " - " + result);
         tvR.setText(result);
+        if (rdA.isChecked() || rdB.isChecked() || rdC.isChecked() || rdD.isChecked()) {
+            daLam++;
+            Log.e("dalam", String.valueOf(daLam));
+        }
         if (rdA.isChecked()) {
             if (rdA.getText().equals("A : "+result)) {
                 dung++;
+                Log.e("dung", String.valueOf(dung));
             }
         }
         else if (rdB.isChecked()) {
             if (rdB.getText().equals("B : "+result)) {
                 dung++;
+                Log.e("dung", String.valueOf(dung));
             }
         }
         else if (rdC.isChecked()) {
             if (rdC.getText().equals("C : "+result)) {
                 dung++;
+                Log.e("dung", String.valueOf(dung));
             }
         }
         else if (rdD.isChecked()) {
             if (rdD.getText().equals("D : "+result)) {
                 dung++;
+                Log.e("dung", String.valueOf(dung));
             }
         }
 
-        //đã làm +1;
-        else if (rdA.isChecked() || rdB.isChecked() || rdC.isChecked() || rdD.isChecked()) {
-            daLam++;
-        }
     }
 
     //THoi gian
@@ -185,7 +196,7 @@ public class TracNghiemActivity extends AppCompatActivity {
             Intent intent = new Intent(TracNghiemActivity.this, KetQuaActivity.class);
             intent.putExtra("DaLam", String.valueOf(daLam));
             intent.putExtra("Dung", String.valueOf(dung));
-            intent.putExtra("putdata",link);
+            intent.putExtra("monthi",monthi);
             startActivity(intent);
 
         }
@@ -196,6 +207,11 @@ public class TracNghiemActivity extends AppCompatActivity {
             builder.setPositiveButton("Đồng Ý", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
+                    Intent  intent = new Intent(TracNghiemActivity.this,ThiThuActivity.class);
+                    intent.putExtra("monthi",monthi);
+                    intent.putExtra("link",link);
+                    intent.putExtra("title",title);
+                    startActivity(intent);
                     finish();
                 }
             });
@@ -293,4 +309,7 @@ public class TracNghiemActivity extends AppCompatActivity {
             builder.show();
 
         }
+
+        //Check internet
+
 }

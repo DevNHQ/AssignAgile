@@ -17,6 +17,7 @@ public class MonActivity extends AppCompatActivity {
     private ImageView imgToolBarMon;
     String monthi;
     String title;
+    String link;
     private TextView txtb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,25 +28,32 @@ public class MonActivity extends AppCompatActivity {
         txtb = findViewById(R.id.tvToolbar);
         Intent intent = getIntent();
         monthi = intent.getStringExtra("monthi");
-        title = intent.getStringExtra("Title");
+        title = intent.getStringExtra("title");
+        link = intent.getStringExtra("link");
         txtb.setText(title);
 
     }
 
     public void onTap(View view) {
         Intent intent = new Intent(MonActivity.this, OnTapActivity.class);
+        intent.putExtra("monthi",monthi);
+        intent.putExtra("title",title);
+        intent.putExtra("link",link);
         startActivity(intent);
     }
 
     public void thiThu(View view) {
         Intent intent = new Intent(MonActivity.this, ThiThuActivity.class);
-        intent.putExtra("m",monthi);
-        intent.putExtra("tt",title);
+        intent.putExtra("monthi",monthi);
+        intent.putExtra("title",title);
+        intent.putExtra("link",link);
         startActivity(intent);
     }
 
     public void backToGocHocTap(View view) {
         Intent intent = new Intent(MonActivity.this, GocHocTapActivity.class);
         startActivity(intent);
+        finish();
     }
+
 }

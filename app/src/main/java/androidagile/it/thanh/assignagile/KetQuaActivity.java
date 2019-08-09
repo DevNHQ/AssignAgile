@@ -39,11 +39,11 @@ public class KetQuaActivity extends AppCompatActivity {
     int dung;
     int sai;
     int chualam;
-    String putdata;
+    String monthi;
+    String title;
+    String link;
     private DatabaseHelper database;
     List<LuuKetQua> luuKetQuaList;
-    String aa = "dâdada";
-    double d;
     private Cursor cursor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +70,9 @@ public class KetQuaActivity extends AppCompatActivity {
         tvChuatraloi.setText(chualam+" / 40");
         tvDiem.setText(0.25*dung+ " / 10");
         Intent intent1 = getIntent();
-        putdata = intent1.getStringExtra("putdata");
+        monthi = intent1.getStringExtra("monthi");
+        title = intent1.getStringExtra("title");
+        link = intent1.getStringExtra("link");
 
         manager = CallbackManager.Factory.create();
         shareDialog.registerCallback(manager, new FacebookCallback<Sharer.Result>() {
@@ -100,7 +102,9 @@ public class KetQuaActivity extends AppCompatActivity {
 
     public void LamLai(View view) {
         Intent intent = new Intent(KetQuaActivity.this,TracNghiemActivity.class);
-        intent.putExtra("putdata",putdata);
+        intent.putExtra("monthi",monthi);
+        intent.putExtra("title",title);
+        intent.putExtra("link",link);
         startActivity(intent);
     }
 
@@ -160,7 +164,7 @@ public class KetQuaActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 String name = edtname.getText().toString();
-                String monhoc =putdata;
+                String monhoc =monthi;
                 String diem = String.valueOf(dung * 0.25);
                 cursor = database.getdata();
                 if(!name.equals("") ||!monhoc.equals("")||!diem.equals("")){
@@ -179,7 +183,6 @@ public class KetQuaActivity extends AppCompatActivity {
                         database.insert(name,monhoc,diem);
                     }
                 }
-
             }
         });
         builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
@@ -190,4 +193,8 @@ public class KetQuaActivity extends AppCompatActivity {
         builder.show();
     }
 
+    @Override
+    public void onBackPressed() {
+        return;
+    }
 }
