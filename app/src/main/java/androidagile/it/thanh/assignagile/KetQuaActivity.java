@@ -64,7 +64,7 @@ public class KetQuaActivity extends AppCompatActivity {
          dalam = Integer.parseInt(intent.getStringExtra("DaLam"));
          dung = Integer.parseInt(intent.getStringExtra("Dung"));
          chualam = 40-dalam;
-         sai = 40-dung-chualam;
+         sai = 40- dung- chualam;
         tvsoCaudung.setText(dung+" / 40");
         tvSocausai.setText(sai+" / 40");
         tvChuatraloi.setText(chualam+" / 40");
